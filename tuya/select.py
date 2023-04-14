@@ -359,6 +359,15 @@ SELECTS: dict[str, tuple[SelectEntityDescription, ...]] = {
             icon="mdi:water-percent",
         ),
     ),
+    "jtmspro": (
+            SelectEntityDescription(
+                key=DPCode.KEY_TONE,
+                name="Key Tone Volume",
+                entity_category=EntityCategory.CONFIG,
+                icon="mdi:volume-source",
+                translation_key="countdown",
+            ),
+    ),
 }
 
 # Socket (duplicate of `kg`)
