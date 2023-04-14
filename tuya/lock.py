@@ -4,10 +4,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import logging
+from typing import Any
 
 from homeassistant.components.lock import LockEntity, LockEntityDescription
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.exceptions import ServiceNotFound
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from tuya_iot import TuyaDevice, TuyaDeviceManager
@@ -82,3 +84,12 @@ class TuyaLockEntity(TuyaEntity, LockEntity):
             return None
 
         return status == self.entity_description.closed_value
+
+    def lock(self, **kwargs: Any) -> None:
+        _LOGGER.warning("Trying to lock. This operation is not supported.")
+        raise ServiceNotFound(self.device.category, "lock")
+
+    def unlock(self, **kwargs: Any) -> None:
+        _LOGGER.warning("Trying to unlock. This operation is not supported")
+        raise ServiceNotFound(self.device.category, "unlock")
+
