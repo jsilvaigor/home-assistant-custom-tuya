@@ -1015,6 +1015,16 @@ SENSORS: dict[str, tuple[TuyaSensorEntityDescription, ...]] = {
             state_class=SensorStateClass.MEASUREMENT,
         ),
     ),
+    "jtmspro": (
+        TuyaSensorEntityDescription(
+            key=DPCode.RESIDUAL_ELECTRICITY,
+            name="Battery",
+            native_unit_of_measurement=PERCENTAGE,
+            device_class=SensorDeviceClass.BATTERY,
+            state_class=SensorStateClass.MEASUREMENT,
+            entity_category=EntityCategory.DIAGNOSTIC,
+        ),
+    ),
 }
 
 # Socket (duplicate of `kg`)
