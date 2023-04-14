@@ -207,3 +207,4 @@ fabric.properties
 
 config/*
 !config/custom_components/
+config/custom_components/tuya
