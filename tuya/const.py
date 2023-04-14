@@ -62,6 +62,7 @@ PLATFORMS = [
     Platform.COVER,
     Platform.FAN,
     Platform.HUMIDIFIER,
+    Platform.LOCK,
     Platform.LIGHT,
     Platform.NUMBER,
     Platform.SCENE,
@@ -144,6 +145,7 @@ class DPCode(StrEnum):
     CLEAN_TIME = "clean_time"
     CLICK_SUSTAIN_TIME = "click_sustain_time"
     CLOUD_RECIPE_NUMBER = "cloud_recipe_number"
+    CLOSED_OPENED = "closed_opened"
     CLOSED_OPENED_KIT = "closed_opened_kit"
     CO_STATE = "co_state"
     CO_STATUS = "co_status"
@@ -236,6 +238,7 @@ class DPCode(StrEnum):
     MUFFLING = "muffling"  # Muffling
     NEAR_DETECTION = "near_detection"
     OPPOSITE = "opposite"
+    OPEN_CLOSE = "open_close"
     PAUSE = "pause"
     PERCENT_CONTROL = "percent_control"
     PERCENT_CONTROL_2 = "percent_control_2"
