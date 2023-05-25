@@ -17,24 +17,6 @@ blueprint:
         target:
           entity:
             domain: light
-    focus_sensor:
-      name: Focus Sensor
-      selector:
-        target:
-          entity:
-            domain: binary_sensor
-    time_start:
-      name: Start interval
-      description: Start of day time
-      default: "06:00:00"
-      selector:
-        time:
-    time_end:
-      name: End interval
-      description: End of day time
-      default: "22:30:00"
-      selector:
-        time:
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
@@ -58,7 +40,7 @@ trigger:
 
 action:
   - alias: "Turn on the light"
-    service: script.turn_light_on_when_not_sleeping_at_night
+    service: script.turnonwhennotsleeping
     data:
       light_to_turn_on: !input light_target
     target: !input light_target
