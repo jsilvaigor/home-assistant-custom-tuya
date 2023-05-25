@@ -26,11 +26,13 @@ blueprint:
     time_start:
       name: Start interval
       description: Start of day time
+      default: "06:00:00"
       selector:
         time:
     time_end:
       name: End interval
       description: End of day time
+      default: "22:30:00"
       selector:
         time:
     no_motion_wait:
@@ -48,6 +50,9 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
+variables:
+  focus_sensor: !input focus_sensor
+
 trigger:
   platform: state
   entity_id: !input motion_entity
@@ -58,7 +63,7 @@ condition:
   - condition: and
     conditions:
     - condition: state
-      entity_id: !input focus_sensor
+      entity_id: focus_sensor
       state: "on"
     - condition: time
       after: !input time_start
