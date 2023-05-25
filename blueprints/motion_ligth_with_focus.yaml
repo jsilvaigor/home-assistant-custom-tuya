@@ -58,7 +58,7 @@ trigger:
 
 action:
   - alias: "Turn on the light"
-    service: turn_light_on_when_not_sleeping_at_night
+    service: script.turn_light_on_when_not_sleeping_at_night
     data:
       light_to_turn_on: !input light_target
     target: !input light_target
