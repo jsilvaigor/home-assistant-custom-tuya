@@ -50,9 +50,6 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-variables:
-  focus_sensor: !input focus_sensor
-
 trigger:
   platform: state
   entity_id: !input motion_entity
@@ -63,7 +60,7 @@ condition:
   - condition: and
     conditions:
     - condition: state
-      entity_id: focus_sensor
+      entity_id: !input focus_sensor
       state: "on"
     - condition: time
       after: !input time_start
