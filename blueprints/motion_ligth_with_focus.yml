@@ -17,6 +17,12 @@ blueprint:
         target:
           entity:
             domain: light
+    focus_sensor:
+      name: Focus Sensor
+      selector:
+        target:
+          entity:
+            domain: binary_sensor
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
