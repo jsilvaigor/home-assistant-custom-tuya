@@ -56,28 +56,11 @@ trigger:
   from: "off"
   to: "on"
 
-condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: !input focus_sensor
-      state: "on"
-    - condition: time
-      after: !input time_start
-      before: !input time_end
-      weekday:
-        - sun
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-      alias: Between 6AM to 10:30 PM
-
 action:
   - alias: "Turn on the light"
-    service: light.turn_on
+    service: turn_light_on_when_not_sleeping_at_night
+    data:
+      light_to_turn_on: !input light_target
     target: !input light_target
   - alias: "Wait until there is no motion from device"
     wait_for_trigger:
