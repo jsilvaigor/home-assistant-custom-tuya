@@ -13,4 +13,4 @@ fi
 
 cp -rf tuya/ config/custom_components/tuya
 
-python3 -m homeassistant -c config
+python3 -m homeassistant -c config -v
